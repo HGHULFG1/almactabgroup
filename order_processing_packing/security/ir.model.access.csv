@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_container_type,container.type,model_container_type,,1,1,1,1
+access_container_shipping_company,container.shipping.company,model_container_shipping_company,,1,1,1,1
+access_container,container,model_container,,1,1,1,1
+
+access_packing_type,packing.type,model_packing_type,,1,1,1,1
+access_packing_marks,packing.marks,model_packing_marks,,1,1,1,1
+access_packing,packing,model_packing,,1,1,1,1
+
+access_packing_term,packing.term,model_packing_term,,1,1,1,1
+access_packing_term_name,packing.term.name,model_packing_term_name,,1,1,1,1

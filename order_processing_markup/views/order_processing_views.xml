@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="order_processing_view_form" model="ir.ui.view">
+        <field name="name">order.processing.form.markup</field>
+        <field name="model">order.processing</field>
+        <field name="inherit_id" ref="order_processing.order_processing_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_info']" position="before">
+                <page name="markup" string="Markup">
+                    <header>
+                        <button name="action_update_markup" string="Update" type="object"
+                                class="oe_highlight"/>
+                    </header>
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <div class="row mt-3 mb-3">
+                                <div class="col-auto">
+                                    <label for="commission_markup"/>
+                                </div>
+                                <div class="col">
+                                    <field name="commission_markup"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="row  mt-3 mb-3">
+                                <div class="col-auto">
+                                    <label for="fluctuation_markup"/>
+                                </div>
+                                <div class="col">
+                                    <field name="fluctuation_markup"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="row  mt-3 mb-3">
+                                <div class="col-auto">
+                                    <label for="inspection_fees_markup"/>
+                                </div>
+                                <div class="col">
+                                    <field name="inspection_fees_markup"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <field name="processing_markup_line"
+                           widget="section_and_note_one2many"
+                           mode="tree">
+                        <tree string="Markup" editable="bottom" create="true" delete="false">
+                            <field name="company_id" invisible="1"/>
+                            <field name="sequence" widget="handle"/>
+                            <field name="sequence_number"/>
+                            <field name="product_id"/>
+                            <field name="default_code" optional="hide"/>
+                            <field name="name" optional="hide"/>
+                            <field name="product_qty"/>
+                            <field name="price_unit_purchase"/>
+                            <field name="price_total_purchase" optional="hide"/>
+                            <field name="price_unit_sale"/>
+                            <field name="price_total_sale" optional="hide"/>
+                            <field name="price_unit_margin"/>
+                            <field name="price_total_margin" optional="hide"/>
+                            <field name="price_unit_freight_documentation"/>
+                            <field name="price_total_freight_documentation" optional="hide"/>
+                            <field name="profit"/>
+                            <field name="markup"/>
+                            <field name="cost"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

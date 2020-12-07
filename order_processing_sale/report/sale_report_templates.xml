@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@name='so_total_summary']" position="after">
+            <div t-if="len(doc.sale_term_ids)>0" class="o_sale_term mt-5">
+                <div class="mb-2">
+                    <strong>Sales Terms:</strong>
+                </div>
+                <table class="table table-sm o_main_table">
+                    <thead style="display: table-row-group">
+                        <tr>
+                            <th name="th_name" class="text-left">#</th>
+                            <th name="th_name" class="text-left">Name</th>
+                            <th name="th_description" class="text-left">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="doc.sale_term_ids" t-as="term">
+                            <tr>
+                                <td name="td_sequence">
+                                    <span t-field="term.sequence"/>
+                                </td>
+                                <td>
+                                    <span t-esc="term.name.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="term.description"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+            <div class="o_bank_account mt-3" t-if="doc.bank_account_id">
+                <div class="mb-2">
+                    <strong>Bank Account info:</strong>
+                </div>
+                <div class="border border-secondary rounded p-2">
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>Number :
+                                    <span t-esc="doc.bank_account_id.acc_number"/>
+                                </li>
+                                <li>Holder :
+                                    <span t-esc="doc.bank_account_id.partner_id.name"/>
+                                </li>
+                                <li>Name :
+                                    <span t-esc="doc.bank_account_id.bank_id.name"/>
+                                </li>
+                                <li>BIC :
+                                    <span t-esc="doc.bank_account_id.bank_id.bic"/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <div class="d-flex flex-row">
+                                        <div>
+                                            Address :
+                                        </div>
+                                        <div>
+                                            <span t-esc="doc.bank_account_id.bank_id.street"/>
+                                            <span t-esc="doc.bank_account_id.bank_id.street2"/>
+                                            <br/>
+                                            <span t-esc="doc.bank_account_id.bank_id.city"/>
+                                            <span t-esc="doc.bank_account_id.bank_id.state.name"/>
+                                            <span t-esc="doc.bank_account_id.bank_id.zip"/>
+                                            <span t-esc="doc.bank_account_id.bank_id.country.name"/>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>Phone :
+                                    <span t-esc="doc.bank_account_id.bank_id.phone"/>
+                                </li>
+                                <li>Email :
+                                    <span t-esc="doc.bank_account_id.bank_id.email"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+        <!--Add default_code in print report-->
+        <xpath expr="//table[hasclass('o_main_table')]//thead//th[@name='th_description']" position="after">
+            <th name="th_part_no">
+                <strong>Part No</strong>
+            </th>
+        </xpath>
+        <xpath expr="//table[hasclass('o_main_table')]//tbody//td[@name='td_name']" position="after">
+            <td name="td_sequence">
+                <span t-field="line.default_code"/>
+            </td>
+        </xpath>
+        <!--Add sequence in print report-->
+        <xpath expr="//table[hasclass('o_main_table')]//thead//th[@name='th_description']" position="before">
+            <th name="th_sequence">
+                <strong>#</strong>
+            </th>
+        </xpath>
+        <xpath expr="//table[hasclass('o_main_table')]//tbody//td[@name='td_name']" position="before">
+            <td name="td_sequence">
+                <span t-field="line.sequence"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>

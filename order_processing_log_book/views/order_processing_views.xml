@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="order_processing_view_form" model="ir.ui.view">
+        <field name="name">order.processing.form.log.book</field>
+        <field name="model">order.processing</field>
+        <field name="inherit_id" ref="order_processing.order_processing_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_info']" position="before">
+                <page name="freight_documents" string="Log Book">
+                    <field name="log_book_line"
+                           widget="section_and_note_one2many"
+                           mode="tree">
+                        <tree string="Log Book Line" editable="top">
+                            <control>
+                                <create name="add_log_book_control" string="Add a log book"/>
+                            </control>
+                            <field name="name"/>
+                            <field name="date_deadline"/>
+                            <field name="user_id"/>
+                            <field name="log_book_type_id"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//group[@name='opportunity_info']//field[@name='company_id']" position="after">
+                <field name="log_book_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

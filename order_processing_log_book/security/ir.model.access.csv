@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_log_book,log.book,model_log_book,,1,1,1,1
+access_log_book_type,log.book.type,model_log_book_type,,1,1,1,1

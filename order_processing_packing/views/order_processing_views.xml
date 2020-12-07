@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="order_processing_view_form" model="ir.ui.view">
+        <field name="name">order.processing.form.financial.expenses</field>
+        <field name="model">order.processing</field>
+        <field name="inherit_id" ref="order_processing.order_processing_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_info']" position="before">
+                <page string="Packing" name="packing_line">
+                    <header>
+                        <button name="action_update_from_sale" string="Import from sale" type="object"
+                                class="oe_highlight"/>
+                    </header>
+                    <field
+                            widget="section_and_note_one2many"
+                            name="packing_line"
+                            mode="tree,kanban"
+                    >
+                        <tree
+                                string="Packing"
+                                editable="bottom"
+                                decoration-info="(not display_type)"
+                        >
+                            <control>
+                                <create name="add_product_control" string="Add a product"/>
+                                <create name="add_section_control" string="Add a section"
+                                        context="{'default_display_type': 'line_section'}"/>
+                                <create name="add_note_control" string="Add a note"
+                                        context="{'default_display_type': 'line_note'}"/>
+                            </control>
+                            <field name="display_type" invisible="1"/>
+                            <field name="sequence" widget="handle"/>
+                            <field name="country_id"/>
+                            <field name="default_code"/>
+                            <field name="product_id"
+                                   attrs="{
+                                            'required': [('display_type', '=', False)]
+                                        }"/>
+                            <field name="name" widget="section_and_note_text"/>
+                            <field name="product_uom_qty"/>
+                            <field name="type_id"/>
+                            <field name="package_numero"/>
+                            <field name="marks_id"/>
+                            <field name="container_id"/>
+                            <field name="width_pack" optional="show"/>
+                            <field name="height_pack" optional="show"/>
+                            <field name="length_pack" optional="show"/>
+                            <field name="weight_pack" optional="show"/>
+                        </tree>
+                    </field>
+                    <group>
+                        <group>
+                            <field name="shipping_to_id"/>
+                            <field name="vendor_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <group>
+                        <label for="packing_term_ids" string="Packing Term"/>
+                        <field name="packing_term_ids" nolabel="1" colspan="4" limit="20">
+                            <tree string="Packing terms" editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="sequence_number"/>
+                                <field name="name"/>
+                                <field name="description"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>*
+    <record id="view_order_form_term" model="ir.ui.view">
+        <field name="name">sale.order.form.term</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_information']" position="before">
+                <page string="Sales Terms">
+                    <field name="sale_term_ids" nolabel="1" colspan="4">
+                        <tree string="Sale term" editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="sequence_number"/>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//page[@name='other_information']//group[@name='sale_info']" position="inside">
+                <field name="bank_account_id"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_id']" position="after">
+                <field name="default_code"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_id']" position="before">
+                <field name="sequence" widget="handle"/>
+                <field name="sequence_number"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']" position="before">
+                <header>
+                    <button name="action_update_sale_line_processing" string="Update Sales Line In Processing"
+                            type="object"
+                            class="oe_highlight"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+</odoo>

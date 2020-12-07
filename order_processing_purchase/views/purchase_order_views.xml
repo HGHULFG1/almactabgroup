@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>*
+    <record id="purchase_order_form_inherit_term" model="ir.ui.view">
+        <field name="name">purchase.order.form.term</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page" position="after">
+                <page string="Terms">
+                    <field name="purchase_term_ids" nolabel="1" colspan="4">
+                        <tree string="Purchase terms" editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="sequence_number"/>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_id']" position="after">
+                <field name="default_code"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']" position="before">
+                <header>
+                    <button name="action_update_rfq_line_processing" string="Update RFQ Line In Processing"
+                            type="object"
+                            class="oe_highlight"/>
+                </header>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_id']" position="before">
+                <field name="sequence" widget="handle"/>
+                <field name="sequence_number"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
