@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="order_processing_view_form" model="ir.ui.view">
+        <field name="name">order.processing.form.financial.expenses</field>
+        <field name="model">order.processing</field>
+        <field name="inherit_id" ref="order_processing.order_processing_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_info']" position="before">
+                <page name="financial" string="Financial">
+                    <div class="oe_inline o_td_label mt16">
+                        <div class="row">
+                            <div class="col-6">
+                                <h2>Income</h2>
+                            </div>
+                            <div class="col-6 text-right font-weight-bold">
+                                <field name="amount_total_income" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                            </div>
+                        </div>
+                        <hr class="mt-0 mb-2"/>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="amount_total_sale" string="Total sales Ex-works"/>
+                            </div>
+                            <div class="col-6 text-right">
+                                <field name="amount_total_sale" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="amount_total_freight_sale" string="Freight and Documentation"/>
+                            </div>
+                            <div class="col-6 text-right">
+                                <field name="amount_total_freight_sale" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="oe_inline o_td_label mt16">
+                        <div class="row">
+                            <div class="col-6">
+                                <h2>Expenses</h2>
+                            </div>
+                            <div class="col-6 text-right font-weight-bold">
+                                <field name="amount_total_expenses" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                            </div>
+                        </div>
+                        <hr class="mt-0 mb-2"/>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="amount_total_rfq" string="Total purchases Ex-works"/>
+                            </div>
+                            <div class="col-6 text-right">
+                                <field name="amount_total_rfq" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="amount_total_freight_cost" string="Freight and Documentation"/>
+                            </div>
+                            <div class="col-6 text-right">
+                                <field name="amount_total_freight_cost" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="amount_subtotal_expense" string="Expense"/>
+                            </div>
+                            <div class="col-6 text-right">
+                                <field name="amount_subtotal_expense" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="oe_inline o_td_label mt16">
+
+                        <div class="row">
+                            <div class="col-6">
+                                <h2>Net profit</h2>
+                            </div>
+                            <div class="col-6 text-right font-weight-bold">
+                                <field name="amount_total_net_profit" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                            </div>
+                        </div>
+                        <hr class="mt-0 mb-2"/>
+                    </div>
+
+                </page>
+                <page name="expense" string="Expense">
+                    <field name="expense_line"
+                           widget="section_and_note_one2many"
+                           mode="tree">
+                        <tree string="Expense Line" editable="bottom">
+                            <control>
+                                <create name="add_product_control" string="Add a line"/>
+                            </control>
+                            <field name="name"/>
+                            <field name="qty"/>
+                            <field name="price_unit"/>
+                            <field name="price_subtotal"/>
+                        </tree>
+                    </field>
+
+                    <group name="note_group" col="6" class="mt-2 mt-md-0">
+                        <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                            <field name="amount_subtotal_expense" class=""
+                                   widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                        <div class="oe_clear"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,171 @@
+<odoo>
+    <data>
+
+        <record id="website.template_header_default" model="ir.ui.view">
+            <field name="active" eval="False"/>
+        </record>
+
+        <template id="technomar_header_layout" active="True" inherit_id="website.layout">
+            <xpath expr="//header//nav" position="replace">
+                <div class="headr_contact_bg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <ul class="m-0 p-0">
+                                    <li class="headr_contact_list">
+                                        <a onclick="directEmail()" target="blank"><i class="fa fa-envelope"></i> Support@domain.com</a>
+                                    </li>
+                                    <li class="headr_contact_list pl-0">
+                                        <a href="#"><i class="fa fa-phone"></i> +0012-345-67890</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                <ul class="m-0 p-0">
+                                    <li class="langs_dropdown">
+                                        <p class="choose_lang">
+<!--                                            <i class="fa fa-globe" />-->
+                                            <img src="/sah_technomar/static/src/img/lang_icon.png" class="top_header_lang" />
+                                            <t t-esc="list(filter(lambda lg : lg[0] == lang, languages))[0][2].split('/').pop()" />
+                                            <i class="fa fa-angle-down ml-2"></i>
+                                            <ul class="list-unstyled langs_menu nav_menu_language" t-if="(request and request.is_frontend_multilang and len(languages) &gt; 1) or (website and (editable or translatable))">
+                                                <t t-foreach="languages" t-as="lg">
+                                                    <li>
+                                                        <a class="menu_footer_pages" t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code=lg[0])" t-att-data-url_code="lg[1]">
+                                                            <t t-esc="lg[2].split('/').pop()"/>
+                                                        </a>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav data-name="Navbar" class="navbar navbar-expand-lg navbar-dark navbar-fixed-top pages_nav">
+                    <div id="top_menu_container" class="container justify-content-start justify-content-lg-between">
+                        <!-- Brand -->
+                        <t t-call="website.placeholder_header_brand">
+                            <t t-set="_link_class" t-value="'mr-4'"/>
+                        </t>
+                        <!-- Navbar Toggler -->
+                        <t t-call="website.navbar_toggler">
+                            <t t-set="_toggler_class" t-value="'ml-auto'"/>
+                        </t>
+                        <!-- Navbar Collapse -->
+                        <div id="top_menu_collapse" class="collapse navbar-collapse order-last order-lg-0">
+                            <t t-call="website.navbar_nav">
+                                <t t-set="_nav_class" t-value="'flex-grow-1 total_pages'"/>
+                                <!-- Menu -->
+                                <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                                    <t t-call="website.submenu">
+                                        <t t-set="item_class" t-value="'nav-item'"/>
+                                        <t t-set="link_class" t-value="'nav-link'"/>
+                                    </t>
+                                </t>
+                                <!-- Sign In -->
+                                <t t-call="portal.placeholder_user_sign_in">
+                                    <t t-set="_item_class" t-value="'nav-item ml-lg-auto'"/>
+                                    <t t-set="_link_class" t-value="'nav-link font-weight-bold'"/>
+                                </t>
+                                <!-- User Dropdown -->
+                                <t t-call="portal.user_dropdown">
+                                    <t t-set="_user_name" t-value="true"/>
+                                    <t t-set="_item_class" t-value="'nav-item dropdown ml-lg-auto'"/>
+                                    <t t-set="_link_class" t-value="'nav-link font-weight-bold'"/>
+                                </t>
+                            </t>
+                        </div>
+
+                        <!-- Language Selector -->
+                        <t t-call="website.placeholder_header_language_selector">
+                            <t t-set="_div_classes" t-value="'ml-2'"/>
+                        </t>
+                        <!-- Button -->
+                        <div class="oe_structure" id="oe_structure_header_default_1"/>
+                    </div>
+                </nav>
+            </xpath>
+        </template>
+
+
+        <template id="technomar_footer_layout" active="True" inherit_id="website.layout">
+            <xpath expr="//div[@id='footer']" position="replace">
+                <!-- footer -->
+                <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+                    <footer class="page-footer font-small stylish-color-dark pt-5 footer_pages_bg">
+                        <!-- Footer Links -->
+                        <div class="container">
+                            <!-- Grid row -->
+                            <div class="row pb-3">
+                                <!-- Grid column -->
+                                <div class="col-md-4 col-sm-6 footer_logo_img">
+                                    <!-- Content -->
+                                    <img src="/sah_technomar/static/src/img/footer_logo_white.png" class="img-fluid" alt="..." />
+                                    <ul class="list-unstyled ml-4">
+                                        <li class="footer_list_links">
+                                            <i class="fa fa-map-marker icon_footer_support"></i>
+                                            <a target="blank" class="footer_page_contact">Giza,Egypt</a>
+                                        </li>
+                                        <li class="footer_list_links">
+                                            <i class="fa fa-phone icon_footer_support"></i>
+                                            <a onclick="directTel()" target="blank" class="footer_page_contact">(+202) 12 345 789</a>
+                                        </li>
+                                        <li class="footer_list_links">
+                                            <i class="fa fa-mobile icon_footer_support"></i>
+                                            <a target="blank" class="footer_page_contact">(+202) 12 345 789</a>
+                                        </li>
+                                        <li class="footer_list_links">
+                                            <i class="fa fa-envelope icon_footer_support"></i>
+                                            <a  onclick="directEmail()" target="blank" class="footer_page_contact">Support@domain.com</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-md-4 col-sm-6  mt-2">
+                                    <!-- Links -->
+                                    <h5 class="mt-3 mb-4 footer_links">Quick Links</h5>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <i class="fa fa-long-arrow-right ml-2"></i>
+                                            <a class="footer_page" href="/about_us">about us</a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-long-arrow-right ml-2"></i>
+                                            <a class="footer_page" href="/products_offer">our products</a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-long-arrow-right ml-2"></i>
+                                            <a class="footer_page" href="/service">our services</a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-long-arrow-right ml-2"></i>
+                                            <a class="footer_page" href="/inquiry">make an inquery</a>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-long-arrow-right ml-2"></i>
+                                            <a class="footer_page" href="/contact_us">contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 col-sm-12 mt-2">
+                                    <!-- Links -->
+                                    <h5 class="footer_links mt-3 mb-4">Follow Us On Facebook</h5>
+                                    <div>
+                                        <img class="social_img_footer" src="/sah_technomar/static/src/img/social_footer.jpg" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+                <!-- footer -->
+            </xpath>
+            <xpath expr="//div[hasclass('o_footer_copyright')]" position="replace"/>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_processing_sale_wizard" model="ir.ui.view">
+        <field name="name">order.processing.sale.wizard.view</field>
+        <field name="model">order.processing.sale.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <p>
+                    sales order has already been confirmed.<br/>
+                    Want to create a new sale order?
+                </p>
+                <footer>
+                    <button name="action_done" string="Yes" type="object" class="oe_highlight"/>
+                    <button string="No" class="btn btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

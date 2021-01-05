@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_order_processing_markup,order.processing.markup,model_order_processing_markup,,1,1,1,1
+access_markup_commission,markup.commission,model_markup_commission,,1,1,1,1

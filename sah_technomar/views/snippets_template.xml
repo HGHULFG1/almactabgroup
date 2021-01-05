@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <!-- Snippets in Website -->
+        <template id="sidebar_snippets_view" inherit_id="website.snippets" name="Sidebar Snippets view">
+            <xpath expr="//div[@id='snippet_structure']//div[hasclass('o_panel_body')]" position="inside">
+<!--                <t t-snippet="sah_technomar.carousel_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/slider-1.svg" />-->
+
+<!--                <t t-snippet="sah_technomar.posts_slider_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/services_slider.svg"/>-->
+
+<!--                <t t-snippet="sah_technomar.products_slider_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/products_snippets.svg" />-->
+<!--                <t t-snippet="sah_technomar.products_tags_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/tabs-1.svg" />-->
+<!--                <t t-snippet="sah_technomar.bundels_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/right_text.svg" />-->
+<!--                <t t-snippet="sah_technomar.bundels_gird_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/types.svg" />-->
+<!--                &lt;!&ndash;                <t t-snippet="sah_technomar.bundels_products_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/types.svg" />&ndash;&gt;-->
+<!--                <t t-snippet="sah_technomar.quiz_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/tabs-1.svg" />-->
+<!--                <t t-snippet="sah_technomar.text_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/text.svg" />-->
+<!--                <t t-snippet="sah_technomar.about_img_grid_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/section-2.svg" />-->
+<!--                <t t-snippet="sah_technomar.breadcrumb_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/breadcrumb.svg" />-->
+<!--                <t t-snippet="sah_technomar.newsletter_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/newsletter.svg" />-->
+<!--                <t t-snippet="sah_technomar.img_right1_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/right_text.svg" />-->
+<!--                &lt;!&ndash;                <t t-snippet="sah_technomar.product_skin_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/breadcrumb.svg" />&ndash;&gt;-->
+<!--                <t t-snippet="sah_technomar.faq_snippet" t-thumbnail="/sah_technomar/static/src/img/icons/snippets/text.svg" />-->
+            </xpath>
+        </template>
+
+
+        <template name="header snippets option" id="header_snippets_option" inherit_id="website.snippet_options">
+            <xpath expr="//we-button[@data-name='header_default_opt']" position="after">
+                <we-button title="technomar Header"
+                           data-name="header_technomar_opt"
+                           data-customize-website-views="sah_technomar.technomar_header_layout"
+                           data-customize-website-variable="'technomar'"
+                           data-img="/sah_technomar/static/src/img/header_template_custom.png"/>
+            </xpath>
+        </template>
+
+
+        <template name="footer snippets option" id="footer_snippets_option" inherit_id="website.snippet_options">
+            <xpath expr="//we-select[@data-variable='footer-template']/we-button[@data-customize-website-views='website.footer_custom']" position="before">
+                <we-button title="technomar Footer"
+                           data-name="header_technomar_opt"
+                           data-customize-website-views="sah_technomar.technomar_footer_layout"
+                           data-customize-website-variable="'technomar'"
+                           data-img="/sah_technomar/static/src/img/footer_template_links.png"/>
+            </xpath>
+        </template>
+
+
+    </data>
+</odoo>

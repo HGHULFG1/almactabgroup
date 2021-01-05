@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_term_view_form" model="ir.ui.view">
+        <field name="name">purchase.term.form</field>
+        <field name="model">purchase.term</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_purchase_term_tree" model="ir.ui.view">
+        <field name="name">purchase.term.tree</field>
+        <field name="model">purchase.term</field>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            <tree string="OrderProcessing">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record id="purchase_term_act" model="ir.actions.act_window">
+        <field name="name">Purchase term</field>
+        <field name="res_model">purchase.term</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_purchase_term_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define a new purchase term
+            </p>
+        </field>
+    </record>
+    <!--    <menuitem-->
+    <!--            id="purchase_terms_settings_menu"-->
+    <!--            name="Purchase terms"-->
+    <!--            parent="order_processing_menu_config"-->
+    <!--            groups="base.group_system"-->
+    <!--            action="purchase_terms_act"-->
+    <!--            sequence="0"/>-->
+
+</odoo>

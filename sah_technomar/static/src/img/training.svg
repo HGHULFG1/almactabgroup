@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="92" height="89" viewBox="0 0 92 89">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #00599d;
+      }
+
+      .cls-1 {
+        stroke: #707070;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_62" data-name="Rectangle 62" class="cls-1" width="92" height="89" transform="translate(1023 2782)"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_7" data-name="Mask Group 7" class="cls-2" transform="translate(-1023 -2782)">
+    <g id="lecture" transform="translate(1019.896 2777.396)">
+      <circle id="Ellipse_10" data-name="Ellipse 10" class="cls-3" cx="6.138" cy="6.138" r="6.138" transform="translate(38.362 69.052)"/>
+      <path id="Path_72" data-name="Path 72" class="cls-3" d="M73.655,84.4H70.586A10.758,10.758,0,0,0,59.954,93.6H84.286A10.755,10.755,0,0,0,73.655,84.4Z"/>
+      <circle id="Ellipse_11" data-name="Ellipse 11" class="cls-3" cx="6.138" cy="6.138" r="6.138" transform="translate(10.741 69.052)"/>
+      <circle id="Ellipse_12" data-name="Ellipse 12" class="cls-3" cx="6.138" cy="6.138" r="6.138" transform="translate(65.983 69.052)"/>
+      <path id="Path_73" data-name="Path 73" class="cls-3" d="M18.414,84.4H15.345A10.758,10.758,0,0,0,4.712,93.6H29.045A10.755,10.755,0,0,0,18.414,84.4Z"/>
+      <path id="Path_74" data-name="Path 74" class="cls-3" d="M7.672,38.362V30.69h3.069V57.543a2.3,2.3,0,0,0,4.6,0V36.828h3.069V57.543a2.3,2.3,0,0,0,4.6,0V23.017H39.9a1.534,1.534,0,1,0,0-3.069H15.345A10.753,10.753,0,0,0,4.6,30.69v4.6A3.072,3.072,0,0,0,7.672,38.362Z"/>
+      <circle id="Ellipse_13" data-name="Ellipse 13" class="cls-3" cx="6.138" cy="6.138" r="6.138" transform="translate(10.741 4.603)"/>
+      <path id="Path_75" data-name="Path 75" class="cls-3" d="M45.675,59.845h4.094l7.366-12.276H53.041Z"/>
+      <path id="Path_76" data-name="Path 76" class="cls-3" d="M46.034,84.4H42.966A10.758,10.758,0,0,0,32.333,93.6H56.665A10.755,10.755,0,0,0,46.034,84.4Z"/>
+      <path id="Path_77" data-name="Path 77" class="cls-3" d="M4.6,69.052h5.432a9.165,9.165,0,0,1,13.688,0H37.658a9.165,9.165,0,0,1,13.688,0H65.28a9.165,9.165,0,0,1,13.688,0H93.6V62.914H4.6Z"/>
+      <path id="Path_78" data-name="Path 78" class="cls-3" d="M83.221,59.845,75.856,47.569H71.762l7.366,12.276Z"/>
+      <path id="Path_79" data-name="Path 79" class="cls-3" d="M35.293,4.6V16.879h3.069V7.672H62.914V23.017h-18.7A4.6,4.6,0,0,1,39.9,26.086h-4.6V44.5H93.6V4.6Zm6.138,36.828H38.362V38.362h3.069Zm0-6.138H38.362V32.224h3.069ZM65.983,7.672h3.069v3.069H65.983ZM90.534,41.431H53.707V38.362h3.069V26.086h3.069V38.362h3.069V35.293h3.069v3.069h3.069V29.155h3.069v9.207H75.19V32.224h3.069v6.138h3.069V23.017H84.4V38.362h3.069V19.948h3.069Zm0-24.552H65.983V13.81H90.534Zm0-6.138H72.121V7.672H90.534Z"/>
+      <path id="Path_80" data-name="Path 80" class="cls-3" d="M44.218,19.948H59.845V10.741H41.431v6.42A4.6,4.6,0,0,1,44.218,19.948Z"/>
+      <path id="Path_81" data-name="Path 81" class="cls-3" d="M62.914,47.569h3.069V59.845H62.914Z"/>
+    </g>
+  </g>
+</svg>

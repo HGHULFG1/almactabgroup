@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+            id="order_processing_menu_root"
+            name="Order Processing"
+            web_icon="order_processing,static/description/icon.png"
+            sequence="7"/>
+
+    <menuitem
+            id="order_processing_menu"
+            name="Order Processing"
+            parent="order_processing_menu_root"
+            sequence="1"/>
+
+    <menuitem
+            id="order_processing_menu_child"
+            name="Order Processing"
+            parent="order_processing_menu"
+            action="order_processing_act"
+            sequence="1"/>
+
+    <!-- CONFIGURATION -->
+    <menuitem
+            id="order_processing_menu_config"
+            name="Configuration"
+            parent="order_processing_menu_root"
+            sequence="25"/>
+    <menuitem
+            id="order_processing_config_settings_menu"
+            name="Settings"
+            parent="order_processing_menu_config"
+            groups="base.group_system"
+            sequence="0"/>
+    <menuitem
+        id="menu_order_processing_stage_act"
+        name="Stages"
+        sequence="0"
+        action="order_processing_stage_action"
+        parent="order_processing_menu_config"
+        groups="base.group_no_one"/>
+</odoo>

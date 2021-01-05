@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_purchaseorder_document" inherit_id="purchase.report_purchaseorder_document">
+        <xpath expr="//div[@id='total']" position="after">
+            <div t-if="len(o.purchase_term_ids)>0" class="mt-5">
+                <div class="mb-2">
+                    <strong>Purchase Terms:</strong>
+                </div>
+                <table class="table table-sm o_main_table">
+                    <thead style="display: table-row-group">
+                        <tr>
+                            <th name="th_sequence" class="text-left">#</th>
+                            <th name="th_name" class="text-left">Name</th>
+                            <th name="th_description" class="text-left">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="o.purchase_term_ids" t-as="term">
+                            <tr>
+                                <td>
+                                    <span t-esc="term.sequence"/>
+                                </td>
+                                <td>
+                                    <span t-esc="term.name.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="term.description"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+        <!--Add default_code in print report-->
+        <xpath expr="//table[hasclass('o_main_table')]//thead//th[@name='th_description']" position="after">
+            <th name="th_part_no">
+                <strong>Part No</strong>
+            </th>
+        </xpath>
+        <xpath expr="//table[hasclass('o_main_table')]//tbody//td[@id='product']" position="after">
+            <td id="default_code">
+                <span t-field="line.default_code"/>
+            </td>
+        </xpath>
+        <!--Add sequence in print report-->
+        <xpath expr="//table[hasclass('o_main_table')]//thead//th[@name='th_description']" position="before">
+            <th name="th_part_no">
+                <strong>#</strong>
+            </th>
+        </xpath>
+        <xpath expr="//table[hasclass('o_main_table')]//tbody//td[@id='product']" position="before">
+            <td id="default_code">
+                <span t-field="line.sequence"/>
+            </td>
+        </xpath>
+    </template>
+
+    <template id="report_purchasequotation_document" inherit_id="purchase.report_purchasequotation_document">
+        <xpath expr="//table[hasclass('table')]" position="after">
+            <div t-if="len(o.purchase_term_ids)>0" class="mt-5">
+                <div class="mb-2">
+                    <strong>Purchase Term:</strong>
+                </div>
+                <table class="table table-sm o_main_table">
+                    <thead style="display: table-row-group">
+                        <tr>
+                            <th name="th_sequence" class="text-left">#</th>
+                            <th name="th_name" class="text-left">Name</th>
+                            <th name="th_description" class="text-left">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="sale_tbody">
+                        <t t-foreach="o.purchase_term_ids" t-as="term">
+                            <tr>
+                                <td>
+                                    <span t-esc="term.sequence"/>
+                                </td>
+                                <td>
+                                    <span t-esc="term.name.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="term.description"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+        <!--Add default_code in print report-->
+        <xpath expr="//table[hasclass('table')]//thead//th[@name='th_description']" position="after">
+            <th name="th_part_no">
+                <strong>Part No</strong>
+            </th>
+        </xpath>
+        <xpath expr="//table[hasclass('table')]//tbody//td[@id='product']" position="after">
+            <td id="default_code">
+                <span t-field="order_line.default_code"/>
+            </td>
+        </xpath>
+        <!--Add sequence in print report-->
+        <xpath expr="//table[hasclass('table')]//thead//th[@name='th_description']" position="before">
+            <th name="th_sequence">
+                <strong>#</strong>
+            </th>
+        </xpath>
+        <xpath expr="//table[hasclass('table')]//tbody//td[@id='product']" position="before">
+            <td id="sequence">
+                <span t-field="order_line.sequence"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>
