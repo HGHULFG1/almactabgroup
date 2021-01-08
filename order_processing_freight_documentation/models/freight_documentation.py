@@ -8,6 +8,7 @@ class ProductAttributeCustomValue(models.Model):
     freight_documentation_id = fields.Many2one('freight.documentation', string="Freight And Documentation", required=True,
                                             ondelete='cascade')
 
+
 class OrderProcessingFreightDocumentation(models.Model):
     _name = 'freight.documentation'
     _description = 'Freight And Documentation'
